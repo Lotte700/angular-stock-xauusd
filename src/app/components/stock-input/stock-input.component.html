@@ -1,0 +1,17 @@
+<div>
+    <label>Ticker: </label>
+    <input type="text" [(ngModel)]="ticker" placeholder="Enter Stock Symbol" />
+  
+    <label>Range: </label>
+    <input type="number" [(ngModel)]="range" min="1" />
+  
+    <label>Timespan: </label>
+    <select [(ngModel)]="timespan">
+      <option *ngFor="let option of timespanOptions" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  
+    <button (click)="onSearch()">Search</button>
+  </div>
+  
