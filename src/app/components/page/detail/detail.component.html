@@ -1,5 +1,13 @@
 
-<h2 *ngIf="stockData()">Stock Data for {{ ticker() }}</h2>
+ <canvas #stockChart></canvas>
+
+ <h2 *ngIf="stockData()">Stock Data for {{ ticker() }}</h2>
+
+ <div *ngIf="stockData()?.results">
+   <canvas id="stockChart"></canvas>
+ </div>
+ 
+ <p *ngIf="!stockData()">Enter values and press "Search" to get stock data.</p>
 <ul *ngIf="stockData()?.results">
   <li *ngFor="let result of stockData()?.results">
     <strong>Date:</strong> {{ result.t | date:'short' }} | 
@@ -10,5 +18,3 @@
     <strong>Volume:</strong> {{ result.v }}
   </li>
 </ul>
-<p *ngIf="!stockData()">Enter values and press "Search" to get stock data.</p>
-
